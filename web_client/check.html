@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+
+<body>
+
+<div id="mydiv"></div>
+
+<script>
+
+function switchOn()
+{
+	var state='ON';
+	$.post('http://192.168.1.10/php2.php:8080',
+		{state : state},
+		function(output){$('#mydiv').html(output).show();});
+}
+
+function switchOff()
+{
+	var state = "OFF";
+	$.post('http://192.168.1.10/php2.php',
+		{state : state},
+		function(output){$('#mydiv').html(output).show();});
+}
+
+</script>
+
+</body>
+
+<button type="on" onclick="switchOn()">ON</button>
+
+<button type="off" onclick="switchOff()">OFF</button>
+
+</html>

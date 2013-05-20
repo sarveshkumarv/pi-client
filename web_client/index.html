@@ -1,0 +1,37 @@
+<html>
+<body>
+
+<script src="phonegap.js"></script>
+<script src="lib/jquery-1.8.2.min.js"></script>
+<script src="js/main.js"></script>
+
+<div id="mydiv"></div>
+
+<script>
+function switchState(name,state)
+{
+        $.post('http://192.168.1.10/php2.php',
+                {name : name,state : state},
+                function(output){$('#mydiv').html(output).show();});
+}
+</script>
+
+<p>SARSWITCH: <button type="on" onclick="switchState('SARSWITCH','ON')">ON</button>
+
+<button type="off" onclick="switchState('SARSWITCH','OFF')">OFF</button>
+</p>
+
+<p>NIKSWITCH2: <button type="on" onclick="switchState('NIKHILSWITCH2','ON')">ON</button>
+
+<button type="off" onclick="switchState('NIKHILSWITCH2','OFF')">OFF</button>
+</p>
+
+<p>NIKSWITCH3: <button type="on" onclick="switchState('NIKHILSWITCH3','ON')">ON</button>
+    
+<button type="off" onclick="switchState('NIKHILSWITCH3','OFF')">OFF</button>
+</p>
+
+
+</body>
+
+</html>
